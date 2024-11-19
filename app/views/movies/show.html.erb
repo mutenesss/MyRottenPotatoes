@@ -1,0 +1,16 @@
+<h1>Details about <%= @movies.title %></h1>
+
+<div id="metadata">
+  <ul id="details">
+    <li> Rating: <%= @movies.rating %> </li>
+    <li> Released on: <%= @movies.release_date.strftime('%F') %> </li>
+  </ul>
+</div>
+
+<div id="description">
+  <h2>Description:</h2>
+  <p> <%= @movies.description %> </p>
+</div>
+
+<%= link_to 'Edit this movie', edit_movie_path(@movies), :class => 'btn' %>
+<%= link_to 'Back to movie list', movies_path, :class => 'btn btn-primary' %>
