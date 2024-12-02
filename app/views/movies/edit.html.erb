@@ -1,0 +1,20 @@
+<h1>Editing the movie: <%= @movies.title %></h1>
+
+<%= form_for @movies do |f| %>
+  <div class="form-group">
+    <%= f.label :title, 'Title', :class => 'form-control' %>
+    <%= f.text_field :title, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rating, 'Rating', :class => 'form-control' %>
+    <%= f.select :rating, ['G','PG','PG-13','R','NC-17'], :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :release_date, 'Released On' %>
+    <%= f.date_select :release_date, start_year: 1895, end_year: Time.now.year, :class => 'form-control' %>
+  </div>
+  <%= f.submit 'Save Changes', :class => 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back to movie list', movies_path, :class => 'btn btn-secondary' %>
+<%= button_to 'Delete Movie', movie_path(@movies), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
